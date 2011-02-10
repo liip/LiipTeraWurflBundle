@@ -26,3 +26,14 @@ parameters:
 services:
     liip_terawurfl.controller.default:
         class: Liip\TeraWurflBundle\Controller\DefaultController
+
+    liip_terawurfl.database:
+        class: Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony
+        arguments:
+            entityManager: @doctrine.orm.entity_manager
+
+    liip_terawurfl.symfony:
+        class: Liip\TeraWurflBundle\VendorInterface\TeraWurflSymfony
+        arguments:
+            config: @liip_terawurfl.config
+            database: @liip_terawurfl.database
