@@ -3,6 +3,7 @@
 namespace Liip\TeraWurflBundle\VendorInterface;
 
 use Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony;
+use Liip\TeraWurflBundle\Config\TeraWurflConfig;
 
 class TeraWurflSymfony extends \TeraWurfl
 {
@@ -23,7 +24,7 @@ class TeraWurflSymfony extends \TeraWurfl
      * constructor. overridden so that we can set $this->db so that the parent class
      * won't try to construct a db for us with no DI
      */
-    public function __construct(\TeraWurflConfig $config, TeraWurflDatabase_Symfony $db)
+    public function __construct(TeraWurflConfig $config, TeraWurflDatabase_Symfony $db)
     {
         $this->config = $config;
         $this->db = $db;
