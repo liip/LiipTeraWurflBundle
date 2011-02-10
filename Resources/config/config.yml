@@ -1,7 +1,7 @@
 parameters:
    liip_terawurfl:
-      cache_enable: true
-      capability_filter: false
+      cache_enable: ~
+      capability_filter: ~
       datadir: data/
       db:
           connector: ~
@@ -10,22 +10,24 @@ parameters:
           schema: ~
           user: ~
       log:
-          file: wurfl.log
-          level: LOG_WARNING #PHP loglevel constant
-      memory_limit: 768M
-      override_memory_limit: true
+          file: ~
+          level: ~ #PHP loglevel constant
+      memory_limit: ~
+      override_memory_limit: ~
       patch:
-          enable: true
-          file: custom_web_patch.xml;web_browsers_patch.xml
-      simple_desktop_engine_enable: true
-      table_prefix: TeraWurfl
-      wurfl_cvs_url: 'http://wurfl.cvs.sourceforge.net/%2Acheckout%2A/wurfl/xml/wurfl.xml'
-      wurfl_dl_url: 'http://downloads.sourceforge.net/project/wurfl/WURFL/latest/wurfl-latest.zip'
-      wurfl_file: wurfl.xml
+          enable: ~
+          file: ~
+      simple_desktop_engine_enable: ~
+      table_prefix: ~
+      wurfl_cvs_url: ~
+      wurfl_dl_url: ~
+      wurfl_file: ~
 
 services:
     liip_terawurfl.controller.default:
         class: Liip\TeraWurflBundle\Controller\DefaultController
+        calls:
+            - [ setContainer, [ @service_container ] ]
 
     liip_terawurfl.database:
         class: Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony
@@ -37,3 +39,8 @@ services:
         arguments:
             config: @liip_terawurfl.config
             database: @liip_terawurfl.database
+
+    liip_terawurfl.configclass:
+        class: Liip\TeraWurflBundle\Config\TeraWurflConfig
+        arguments:
+            capability_filter: %liip_terawurfl%
