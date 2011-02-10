@@ -1,0 +1,3 @@
+services:
+    liip_terawurfl.controller.default:
+        class: Liip\TeraWurflBundle\Controller\DefaultController
