@@ -6,16 +6,21 @@
 
     <entity name="Liip\TeraWurflBundle\Entity\Merge" table="terawurfl_merge">
 
-       <id name="id" column="deviceID" type="string" length="64">
-       </id>
+        <id name="id" column="deviceID" type="string" length="64">
+        </id>
 
-       <field name="userAgent" column="user_agent" type="string" length="255" nullable="true" />
-       <field name="fallBack" column="fall_back" type="string" length="64" nullable="true" />
-       <field name="actualDeviceRoot" column="actual_device_root" type="boolean" default="false" />
-       <field name="match" column="match" type="boolean" default="true" />
-       <field name="capabilities" column="capabilities" type="text" />
-       <field name="matcher" column="matcher" type="string" length="255" />
+        <field name="userAgent" column="user_agent" type="string" length="255" />
+        <field name="fallBack" column="fall_back" type="string" length="64" nullable="true" />
+        <field name="actualDeviceRoot" column="actual_device_root" type="boolean" default="false" />
+        <field name="match" column="match" type="boolean" default="true" />
+        <field name="capabilities" column="capabilities" type="text" />
+        <field name="matcher" column="matcher" type="string" length="255" />
 
-   </entity>
+        <indexes>
+            <index name="device_id_idx" columns="deviceID" />
+            <index name="user_agent_idx" columns="user_agent" />
+        </indexes>
+
+    </entity>
 
 </doctrine-mapping>

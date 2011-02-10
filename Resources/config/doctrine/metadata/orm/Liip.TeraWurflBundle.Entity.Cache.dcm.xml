@@ -6,11 +6,15 @@
 
     <entity name="Liip\TeraWurflBundle\Entity\Cache" table="terawurfl_cache">
 
-       <id name="userAgent" column="user_agent" type="string" length="255">
-       </id>
+        <id name="userAgent" column="user_agent" type="string" length="255">
+        </id>
 
-       <field name="cacheData" column="cache_data" type="text" nullable="false" />
+        <field name="cacheData" column="cache_data" type="text" nullable="false" />
 
-   </entity>
+        <indexes>
+            <index name="user_agent_idx" columns="user_agent" />
+        </indexes>
+
+    </entity>
 
 </doctrine-mapping>

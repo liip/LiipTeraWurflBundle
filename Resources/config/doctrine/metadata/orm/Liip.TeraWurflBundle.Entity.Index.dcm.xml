@@ -6,11 +6,15 @@
 
     <entity name="Liip\TeraWurflBundle\Entity\Index" table="terawurfl_index">
 
-       <id name="id" column="deviceID" type="string" length="64">
-       </id>
+        <id name="id" column="deviceID" type="string" length="64">
+        </id>
 
-       <field name="matcher" column="matcher" type="string" length="64" />
+        <field name="matcher" column="matcher" type="string" length="64" />
 
-   </entity>
+        <indexes>
+            <index name="device_id_idx" columns="deviceID" />
+        </indexes>
+
+    </entity>
 
 </doctrine-mapping>

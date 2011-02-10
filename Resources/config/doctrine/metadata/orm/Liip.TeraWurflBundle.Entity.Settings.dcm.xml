@@ -6,11 +6,11 @@
 
     <entity name="Liip\TeraWurflBundle\Entity\Settings" table="terawurfl_settings">
 
-       <id name="id" column="id" type="string" length="64">
-       </id>
+        <id name="id" column="id" type="string" length="64">
+        </id>
 
-       <field name="value" column="value" type="string" length="255" nullable="true" />
+        <field name="value" column="value" type="string" length="255" nullable="true" />
 
-   </entity>
+    </entity>
 
 </doctrine-mapping>
