@@ -10,6 +10,8 @@
 namespace Liip\TeraWurflBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
 class TeraWurflExtension extends Extension
 {
@@ -18,7 +20,7 @@ class TeraWurflExtension extends Extension
      * @var array
      */
     protected $resources = array(
-        'config' => 'config.xml',
+        'config' => 'config.yml',
     );
 
     /**
@@ -29,8 +31,7 @@ class TeraWurflExtension extends Extension
      */
     public function configLoad($configs, ContainerBuilder $container)
     {
-        // TODO: Check if this is neccesary
-        /*$config = array_shift($configs);
+        $config = array_shift($configs);
         foreach ($configs as $tmp) {
             $config = array_replace_recursive($config, $tmp);
         }
@@ -40,7 +41,17 @@ class TeraWurflExtension extends Extension
 
         foreach ($config as $key => $value) {
             $container->setParameter($this->getAlias().'.'.$key, $value);
-        }*/
+        }
+    }
+
+    /**
+     * Get File Loader
+     *
+     * @param ContainerBuilder $container
+     */
+    public function getFileLoader($container)
+    {
+        return new YamlFileLoader($container, __DIR__.'/../Resources/config');
     }
 
     /**
