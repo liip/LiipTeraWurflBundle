@@ -1,7 +1,5 @@
 <?php
 
-namespace Liip\TeraWurflBundle\Config;
-
 /**
  * @author Alain Horner <alain.horner@liip.ch>
  * @author Lea Haensenberger <lea.haensenberger@gmail.com>

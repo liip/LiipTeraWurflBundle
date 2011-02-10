@@ -2,7 +2,7 @@
 
 namespace Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors;
 
-class TeraWurflDatabase_Symfony extends \TeraWurflDatabase
+class TeraWurflDatabaseSymfony extends \TeraWurflDatabase
 {
     /**
      * entity manager
@@ -22,10 +22,14 @@ class TeraWurflDatabase_Symfony extends \TeraWurflDatabase
      */
     protected $wurfl;
 
-    public function __construct($entityManager, \TeraWurfl $wurfl)
+    public function __construct($entityManager)
     {
         $this->entityManager = $entityManager;
         $this->conn = $this->entityManager->getConnection();
+    }
+
+    public function setWurfl($wurfl)
+    {
         $this->wurfl = $wurfl;
     }
 

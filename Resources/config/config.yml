@@ -1,5 +1,5 @@
 parameters:
-   liip_terawurfl:
+   liip_terawurfl.configs:
       cache_enable: ~
       capability_filter: ~
       datadir: data/
@@ -30,10 +30,9 @@ services:
             - [ setContainer, [ @service_container ] ]
 
     liip_terawurfl.database:
-        class: Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony
+        class: Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabaseSymfony
         arguments:
             entityManager: @doctrine.orm.entity_manager
-            wurfl: @liip_terawurfl.symfony
 
     liip_terawurfl.symfony:
         class: Liip\TeraWurflBundle\VendorInterface\TeraWurflSymfony
@@ -42,11 +41,17 @@ services:
             database: @liip_terawurfl.database
 
     liip_terawurfl.configclass:
-        class: Liip\TeraWurflBundle\Config\TeraWurflConfig
+        class: Liip\TeraWurflBundle\Config\TeraWurflConfigSymfony
         arguments:
-            capability_filter: %liip_terawurfl%
+            configs: %liip_terawurfl.configs%
 
     liip_terawurfl.wrapper:
-        class: Liip\TeraWurfl\Helper\TeraWurflHelper
+        class: Liip\TeraWurflBundle\Helper\TeraWurflWrapper
         arguments:
+            wurfl: @liip_terawurfl.symfony
+
+    liip_terawurfl.update:
+        class: Liip\TeraWurflBundle\Helper\TeraWurflUpdate
+        arguments:
+            config: @liip_terawurfl.configclass
             wurfl: @liip_terawurfl.symfony
