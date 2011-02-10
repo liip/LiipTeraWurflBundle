@@ -33,6 +33,7 @@ services:
         class: Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony
         arguments:
             entityManager: @doctrine.orm.entity_manager
+            wurfl: @liip_terawurfl.symfony
 
     liip_terawurfl.symfony:
         class: Liip\TeraWurflBundle\VendorInterface\TeraWurflSymfony
