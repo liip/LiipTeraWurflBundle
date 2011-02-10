@@ -1,6 +1,9 @@
 <?php
 
 /*
+ * @author Alain Horner <alain.horner@liip.ch>
+ * @author Lea Haensenberger <lea.haensenberger@gmail.com>
+ *
  * This file is part of the Liip/TeraWurflBundle
  *
  * This source file is subject to the MIT license that is bundled

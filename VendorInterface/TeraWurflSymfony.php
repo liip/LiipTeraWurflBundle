@@ -1,8 +1,8 @@
 <?php
 
-namespace Liip\TeraWurflBundle\VendorInterface\;
+namespace Liip\TeraWurflBundle\VendorInterface;
 
-use Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony
+use Liip\TeraWurflBundle\VendorInterface\DatabaseConnectors\TeraWurflDatabase_Symfony;
 
 class TeraWurflSymfony extends \TeraWurfl
 {

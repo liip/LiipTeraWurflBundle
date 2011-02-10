@@ -37,10 +37,15 @@ services:
     liip_terawurfl.symfony:
         class: Liip\TeraWurflBundle\VendorInterface\TeraWurflSymfony
         arguments:
-            config: @liip_terawurfl.config
+            config: @liip_terawurfl.configclass
             database: @liip_terawurfl.database
 
     liip_terawurfl.configclass:
         class: Liip\TeraWurflBundle\Config\TeraWurflConfig
         arguments:
             capability_filter: %liip_terawurfl%
+
+    liip_terawurfl.wrapper:
+        class: Liip\TeraWurfl\Helper\TeraWurflHelper
+        arguments:
+            wurfl: @liip_terawurfl.symfony
